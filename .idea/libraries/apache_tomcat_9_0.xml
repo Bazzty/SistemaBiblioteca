@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="apache-tomcat-9.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/OneDrive - Universidad San Sebastian/Universidad/Semestre 2 2025/Programación avanzada/apache-tomcat-9.0.112" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/OneDrive - Universidad San Sebastian/Universidad/Semestre 2 2025/Programación avanzada/apache-tomcat-9.0.112/webapps/docs/appdev/sample/src" />
+      <root url="file://$USER_HOME$/OneDrive - Universidad San Sebastian/Universidad/Semestre 2 2025/Programación avanzada/apache-tomcat-9.0.112/webapps/examples/WEB-INF/classes" />
+    </SOURCES>
+  </library>
+</component>
