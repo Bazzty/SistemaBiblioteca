@@ -1,4 +1,4 @@
-package main.java.servlet;
+package servlet;
 
 import dao.LibroDAO;
 import model.Libro;
