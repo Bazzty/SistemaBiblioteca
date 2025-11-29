@@ -48,3 +48,23 @@
                         </div>
 
                         <div class="mb-3">
+                            <label>Stock:</label>
+                            <input type="number" name="stock" class="form-control" required min="0"
+                                   value="<%= (libro != null) ? libro.getStock() : "" %>">
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <%= (libro != null) ? "Actualizar" : "Guardar" %>
+                            </button>
+                            <a href="../libros" class="btn btn-secondary">Cancelar</a>
+                        </div>
+
+                    </form> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
