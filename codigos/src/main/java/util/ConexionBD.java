@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexionBD {
 
     // Asegúrate de que el nombre de la BD sea correcto (Mayúscula/Minúscula)
-    private static final String URL = "jdbc:mysql://localhost:3307/Biblioteca?serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/Biblioteca?serverTimezone=UTC";
     // TUS DATOS DE WINDOWS
     private static final String USUARIO = "root";
     private static final String CLAVE = "";
