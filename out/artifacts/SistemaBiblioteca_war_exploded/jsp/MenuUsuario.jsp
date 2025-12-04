@@ -4,9 +4,8 @@
     // 1. Recuperar sesión
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
 
-    // 2. Validar: Que exista Y que su rol sea 'usuario' (ignorando mayúsculas/minúsculas)
+    // 2. Validar: Que exista Y que su rol sea 'usuario'
     if (usuario == null || !"usuario".equalsIgnoreCase(usuario.getRol())) {
-        // Si falla, lo mandamos al index.jsp de la raíz
         response.sendRedirect("../index.jsp");
         return;
     }
@@ -38,7 +37,9 @@
             <div class="card shadow p-4 mb-3">
                 <h3>📖 Catálogo</h3>
                 <p>Busca libros disponibles y solicita un préstamo.</p>
-                <a href="#" class="btn btn-success btn-lg disabled">Buscar Libros (Próximamente)</a>
+                <a href="../libros" class="btn btn-success btn-lg">
+                    Buscar Libros
+                </a>
             </div>
         </div>
 
@@ -46,7 +47,9 @@
             <div class="card shadow p-4 mb-3">
                 <h3>📅 Mis Préstamos</h3>
                 <p>Revisa tus fechas de devolución.</p>
-                <a href="#" class="btn btn-outline-success btn-lg disabled">Ver Mis Préstamos</a>
+                <a href="../prestamos?action=mis_prestamos" class="btn btn-outline-success btn-lg">
+                    Ver Mis Préstamos
+                </a>
             </div>
         </div>
 

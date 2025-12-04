@@ -60,7 +60,17 @@
                             <a href="../libros" class="btn btn-secondary">Cancelar</a>
                         </div>
 
-                    </form> </div>
+                    </form>
+
+                    <br>
+                    <div style="text-align: center;">
+                        <a href="${pageContext.request.contextPath}/jsp/MenuAdmin.jsp"
+                           class="btn btn-outline-dark btn-sm">
+                            &larr; Volver al Menú Principal
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

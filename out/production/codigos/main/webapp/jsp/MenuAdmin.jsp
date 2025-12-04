@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-md-6">
-            <div class="card shadow p-4">
+            <div class="card shadow p-4 h-100">
                 <h3>📚 Gestión de Libros</h3>
                 <p>Agregar, editar, eliminar y listar libros del inventario.</p>
                 <a href="../libros" class="btn btn-primary btn-lg">Ir a Inventario</a>
@@ -39,7 +39,15 @@
         </div>
 
         <div class="col-md-6">
-            <div class="card shadow p-4">
+            <div class="card shadow p-4 h-100">
+                <h3>👥 Gestión de Usuarios</h3>
+                <p>Administrar cuentas, roles y contraseñas.</p>
+                <a href="../usuarios" class="btn btn-info btn-lg text-white">Ir a Usuarios</a>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-4">
+            <div class="card shadow p-4 border-danger">
                 <h3>🚪 Salir</h3>
                 <p>Cerrar la sesión actual de forma segura.</p>
                 <a href="../logout" class="btn btn-danger btn-lg">Cerrar Sesión</a>

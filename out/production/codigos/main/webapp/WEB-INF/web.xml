@@ -32,4 +32,13 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PrestamoServlet</servlet-name>
+        <servlet-class>servlet.PrestamoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PrestamoServlet</servlet-name>
+        <url-pattern>/prestamos</url-pattern>
+    </servlet-mapping>
+
 </web-app>
