@@ -3,7 +3,7 @@
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
     if (usuario == null || !"admin".equalsIgnoreCase(usuario.getRol())) {
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
         return;
     }
 %>
@@ -20,7 +20,7 @@
         <span class="navbar-brand">📊 Panel de Estadísticas</span>
         <div class="d-flex align-items-center gap-3">
             <span class="text-white">Admin: <strong><%= usuario.getNombre() %></strong></span>
-            <a href="../jsp/MenuAdmin.jsp" class="btn btn-sm btn-outline-light">Volver al Menú</a>
+            <a href="jsp/MenuAdmin.jsp" class="btn btn-sm btn-outline-light">Volver al Menú</a>
         </div>
     </div>
 </nav>
@@ -61,7 +61,9 @@
     </div>
 
     <div class="mt-4 text-center">
-        <a href="../jsp/MenuAdmin.jsp" class="btn btn-secondary btn-lg">Volver al Panel Principal</a>
+        <div class="mt-4 text-center">
+            <a href="jsp/MenuAdmin.jsp" class="btn btn-secondary btn-lg">Volver al Panel Principal</a>
+        </div>
     </div>
 </div>
 

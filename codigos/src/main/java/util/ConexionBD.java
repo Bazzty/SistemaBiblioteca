@@ -10,7 +10,7 @@ public class ConexionBD {
     private static final String URL = "jdbc:mysql://localhost:3306/Biblioteca?serverTimezone=UTC";
     // TUS DATOS DE WINDOWS
     private static final String USUARIO = "root";
-    private static final String CLAVE = "";
+    private static final String CLAVE = "Benjamin2002910";
 
     public static Connection getConexion() throws SQLException {
         try {
