@@ -29,29 +29,35 @@
             <p class="text-muted">Selecciona una opción</p>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 mb-3">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-4 h-100">
                 <h3>📚 Libros</h3>
                 <p>Inventario y Stock.</p>
-                <a href="../libros" class="btn btn-primary">Ir a Inventario</a>
+                <a href="../libros" class="btn btn-primary w-100">Ir a Inventario</a>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 mb-3">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-4 h-100">
                 <h3>👥 Usuarios</h3>
                 <p>Administrar clientes.</p>
-                <a href="../usuarios" class="btn btn-info text-white">Ver Usuarios</a>
+                <a href="../usuarios" class="btn btn-info text-white w-100">Ver Usuarios</a>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 mb-3">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-4 h-100">
                 <h3>📦 Préstamos</h3>
                 <p>Historial y Devoluciones.</p>
-                <a href="../prestamos?action=mis_prestamos" class="btn btn-warning">
-                    Ver Todos
-                </a>
+                <a href="../prestamos?action=mis_prestamos" class="btn btn-warning w-100">Ver Todos</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-4 h-100">
+                <h3>📊 Reportes</h3>
+                <p>Estadísticas generales.</p>
+                <a href="../reportes" class="btn btn-success w-100">Ver Reportes</a>
             </div>
         </div>
 
