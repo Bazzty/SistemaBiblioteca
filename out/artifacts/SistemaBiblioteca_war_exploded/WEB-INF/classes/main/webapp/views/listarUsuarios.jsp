@@ -3,10 +3,13 @@
 <%@ page import="model.Usuario" %>
 
 <%
-    // Validación de seguridad (solo admin)
+    // 1. RECUPERAR USUARIO DE SESIÓN
     Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+
+    // 2. VALIDACIÓN DE SEGURIDAD (Solo admin)
+    // Si no hay usuario o no es admin, redirigir a index.jsp (sin "../")
     if (usuarioLogueado == null || !"admin".equalsIgnoreCase(usuarioLogueado.getRol())) {
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
         return;
     }
 %>
@@ -24,6 +27,7 @@
         <span class="navbar-brand">🏛️ Administración de Usuarios</span>
         <div class="d-flex align-items-center gap-3">
             <span class="text-white">Admin: <strong><%= usuarioLogueado.getNombre() %></strong></span>
+            <%-- Usamos request.contextPath para asegurar que vuelva correctamente al menú --%>
             <a href="${pageContext.request.contextPath}/jsp/MenuAdmin.jsp" class="btn btn-sm btn-outline-light">Volver al Menú</a>
         </div>
     </div>
@@ -33,7 +37,8 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>👥 Listado de Usuarios</h2>
-        <a href="../usuarios?action=nuevo" class="btn btn-success">
+        <%-- CORREGIDO: Quitamos "../" porque ya estamos en el servlet /usuarios --%>
+        <a href="usuarios?action=nuevo" class="btn btn-success">
             + Nuevo Usuario
         </a>
     </div>
@@ -64,14 +69,15 @@
                         <%-- Badge de color según el rol --%>
                         <span class="badge <%= "admin".equalsIgnoreCase(u.getRol()) ? "bg-danger" : "bg-info text-dark" %>">
                                 <%= u.getRol().toUpperCase() %>
-                            </span>
+                        </span>
                     </td>
                     <td class="text-center">
-                        <a href="../usuarios?action=editar&id=<%= u.getId() %>" class="btn btn-sm btn-warning">✏️ Editar</a>
+                        <%-- CORREGIDO: Quitamos "../" en los enlaces de Editar y Eliminar --%>
+                        <a href="usuarios?action=editar&id=<%= u.getId() %>" class="btn btn-sm btn-warning">✏️ Editar</a>
 
                         <%-- Evitar que el admin se borre a sí mismo por error --%>
                         <% if(u.getId() != usuarioLogueado.getId()) { %>
-                        <a href="../usuarios?action=eliminar&id=<%= u.getId() %>"
+                        <a href="usuarios?action=eliminar&id=<%= u.getId() %>"
                            class="btn btn-sm btn-danger"
                            onclick="return confirm('¿Estás seguro de borrar al usuario <%= u.getNombre() %>?');">
                             🗑️ Eliminar
@@ -97,6 +103,7 @@
     </div>
 
     <div class="mt-3 text-center">
+        <%-- CORREGIDO: Ruta segura al menú --%>
         <a href="${pageContext.request.contextPath}/jsp/MenuAdmin.jsp" class="btn btn-secondary">
             &larr; Volver al Menú Principal
         </a>

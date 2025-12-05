@@ -52,9 +52,7 @@
 
         <%-- Botón de agregar solo para Admin --%>
         <% if(esAdmin) { %>
-        <a href="../libros?action=nuevo" class="btn btn-success">
-            + Agregar Nuevo Libro
-        </a>
+        <a href="libros?action=nuevo" class="btn btn-success"> + Agregar Nuevo Libro </a>
         <% } %>
     </div>
 
@@ -94,10 +92,8 @@
                     <td class="text-center">
                         <%-- OPCIONES DE ADMIN --%>
                         <% if(esAdmin) { %>
-                        <a href="../libros?action=editar&id=<%= l.getId() %>" class="btn btn-sm btn-warning">✏️</a>
-                        <a href="../libros?action=eliminar&id=<%= l.getId() %>"
-                           class="btn btn-sm btn-danger"
-                           onclick="return confirm('¿Borrar este libro?');">🗑️</a>
+                            <a href="libros?action=editar&id=<%= l.getId() %>" class="btn btn-sm btn-warning">✏️</a>
+                            <a href="libros?action=eliminar&id=<%= l.getId() %>" class="btn btn-sm btn-danger" onclick="return confirm('¿Borrar este libro?');">🗑️</a>
 
                         <%-- OPCIONES DE USUARIO (SOLICITAR) --%>
                         <% } else { %>

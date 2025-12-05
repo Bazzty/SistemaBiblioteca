@@ -64,6 +64,6 @@
 
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-success">Guardar</button>
-                            <a href="<%= esRegistroPublico ? "../index.jsp" : "../usuarios" %>" class="btn btn-secondary">Cancelar</a>
+                            <a href="<%= esRegistroPublico ? "index.jsp" : "usuarios" %>" class="btn btn-secondary">Cancelar</a>
                         </div>
                     </

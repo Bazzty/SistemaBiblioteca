@@ -7,10 +7,9 @@
     // 1. VALIDACIÓN DE SEGURIDAD
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
     if (usuario == null) {
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
         return;
     }
-
     // 2. LÓGICA DE NAVEGACIÓN
     String contexto = request.getContextPath();
     boolean esAdmin = "admin".equalsIgnoreCase(usuario.getRol());

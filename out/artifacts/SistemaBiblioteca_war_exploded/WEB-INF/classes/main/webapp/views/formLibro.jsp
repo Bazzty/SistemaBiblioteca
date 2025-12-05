@@ -30,8 +30,7 @@
                     </div>
                     <% } %>
                     <%-- FIN BLOQUE ERROR --%>
-
-                    <form action="../libros" method="post">
+                        <form action="libros" method="post">
 
                         <input type="hidden" name="id" value="<%= (libro != null) ? libro.getId() : "" %>">
 
@@ -67,7 +66,7 @@
                             <button type="submit" class="btn btn-success">
                                 <%= (libro != null) ? "Actualizar" : "Guardar" %>
                             </button>
-                            <a href="../libros" class="btn btn-secondary">Cancelar</a>
+                            <a href="libros" class="btn btn-secondary">Cancelar</a>
                         </div>
 
                     </form>
