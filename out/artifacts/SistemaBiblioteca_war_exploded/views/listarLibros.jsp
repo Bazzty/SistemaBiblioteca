@@ -65,9 +65,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Título</th>
-                    <th>Autor (ID)</th>
-                    <th>Categoría (ID)</th>
-                    <th>Stock</th>
+                    <th>Autor</th>      <th>Categoría</th>  <th>Stock</th>
                     <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
@@ -81,8 +79,10 @@
                 <tr>
                     <td><%= l.getId() %></td>
                     <td><%= l.getTitulo() %></td>
-                    <td><%= l.getIdAutor() %></td>
-                    <td><%= l.getIdCategoria() %></td>
+
+                    <td><%= l.getNombreAutor() %></td>
+                    <td><%= l.getNombreCategoria() %></td>
+
                     <td>
                         <% if(l.getStock() > 0) { %>
                         <span class="badge bg-success"><%= l.getStock() %></span>

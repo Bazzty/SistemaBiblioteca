@@ -29,10 +29,16 @@ public class LibroDAO {
         }
     }
 
-    // 2. LISTAR (Read)
+    // 2. LISTAR (Read) - CON NOMBRES DE AUTOR Y CATEGORÍA
     public List<Libro> listarLibros() {
         List<Libro> lista = new ArrayList<>();
-        String sql = "SELECT * FROM libro";
+
+        // Usamos JOIN para traer el nombre del autor y de la categoría
+        String sql = "SELECT l.*, a.nombre AS nombre_autor, c.nombre AS nombre_categoria " +
+                "FROM libro l " +
+                "JOIN autor a ON l.id_autor = a.id_autor " +
+                "JOIN categoria c ON l.id_categoria = c.id_categoria";
+
         try (Connection con = ConexionBD.getConexion();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -44,6 +50,11 @@ public class LibroDAO {
                 l.setIdAutor(rs.getInt("id_autor"));
                 l.setIdCategoria(rs.getInt("id_categoria"));
                 l.setStock(rs.getInt("stock"));
+
+                // --- AQUÍ GUARDAMOS LOS NOMBRES QUE TRAJIMOS DE LA BD ---
+                l.setNombreAutor(rs.getString("nombre_autor"));
+                l.setNombreCategoria(rs.getString("nombre_categoria"));
+
                 lista.add(l);
             }
         } catch (SQLException e) {

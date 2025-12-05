@@ -7,6 +7,10 @@ public class Libro {
     private int idCategoria;  // Clave foránea
     private int stock;
 
+    // --- NUEVOS CAMPOS (Para mostrar nombres en la tabla) ---
+    private String nombreAutor;
+    private String nombreCategoria;
+
     public Libro() {}
 
     public Libro(int id, String titulo, int idAutor, int idCategoria, int stock) {
@@ -32,4 +36,12 @@ public class Libro {
 
     public int getStock() { return stock; }
     public void setStock(int stock) { this.stock = stock; }
+
+    // --- NUEVOS GETTERS Y SETTERS ---
+    public String getNombreAutor() { return nombreAutor; }
+    public void setNombreAutor(String nombreAutor) { this.nombreAutor = nombreAutor; }
+
+    public String getNombreCategoria() { return nombreCategoria; }
+    public void setNombreCategoria(String nombreCategoria) { this.nombreCategoria = nombreCategoria; }
+
 }
