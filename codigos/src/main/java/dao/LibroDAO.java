@@ -119,4 +119,34 @@ public class LibroDAO {
         }
         return null;
     }
+
+    // 5. VALIDAR EXISTENCIA DE AUTOR
+    public boolean existeAutor(int idAutor) {
+        String sql = "SELECT id_autor FROM autor WHERE id_autor = ?";
+        try (Connection con = ConexionBD.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idAutor);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next(); // Retorna true si encuentra el ID
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // 6. VALIDAR EXISTENCIA DE CATEGORÍA
+    public boolean existeCategoria(int idCategoria) {
+        String sql = "SELECT id_categoria FROM categoria WHERE id_categoria = ?";
+        try (Connection con = ConexionBD.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idCategoria);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next(); // Retorna true si encuentra el ID
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -9,6 +9,7 @@
 <head>
     <title><%= (libro != null) ? "Editar Libro" : "Nuevo Libro" %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-light">
 
@@ -20,6 +21,15 @@
                     <h4><%= (libro != null) ? "Editar Libro" : "Registrar Nuevo Libro" %></h4>
                 </div>
                 <div class="card-body">
+
+                    <%-- BLOQUE DE ERROR (NUEVO) --%>
+                    <% if (request.getAttribute("error") != null) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>¡Atención!</strong> <%= request.getAttribute("error") %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+                    <%-- FIN BLOQUE ERROR --%>
 
                     <form action="../libros" method="post">
 

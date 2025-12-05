@@ -51,25 +51,57 @@ public class LibroServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String idStr = request.getParameter("id");
-        String titulo = request.getParameter("titulo");
-        int idAutor = Integer.parseInt(request.getParameter("idAutor"));
-        int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
-        int stock = Integer.parseInt(request.getParameter("stock"));
+        try {
+            // 1. Recibir datos
+            String idStr = request.getParameter("id");
+            String titulo = request.getParameter("titulo");
+            // Usamos try-catch por si el usuario deja vacío o pone letras
+            int idAutor = Integer.parseInt(request.getParameter("idAutor"));
+            int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
 
-        Libro libro = new Libro();
-        libro.setTitulo(titulo);
-        libro.setIdAutor(idAutor);
-        libro.setIdCategoria(idCategoria);
-        libro.setStock(stock);
+            // 2. Crear el objeto Libro (para guardarlo o devolverlo si hay error)
+            Libro libro = new Libro();
+            libro.setTitulo(titulo);
+            libro.setIdAutor(idAutor);
+            libro.setIdCategoria(idCategoria);
+            libro.setStock(stock);
 
-        if (idStr == null || idStr.isEmpty()) {
-            libroDAO.insertarLibro(libro); // Nuevo
-        } else {
-            libro.setId(Integer.parseInt(idStr));
-            libroDAO.actualizarLibro(libro); // Editar
+            if (idStr != null && !idStr.isEmpty()) {
+                libro.setId(Integer.parseInt(idStr));
+            }
+
+            // --- VALIDACIONES DE EXISTENCIA ---
+            boolean existeAutor = libroDAO.existeAutor(idAutor);
+            boolean existeCategoria = libroDAO.existeCategoria(idCategoria);
+
+            if (!existeAutor || !existeCategoria) {
+                // Construimos el mensaje de error
+                StringBuilder errorMsg = new StringBuilder();
+                if (!existeAutor) errorMsg.append("El Autor con ID ").append(idAutor).append(" no existe. ");
+                if (!existeCategoria) errorMsg.append("La Categoría con ID ").append(idCategoria).append(" no existe.");
+
+                // Enviamos el error y el libro de vuelta al formulario
+                request.setAttribute("error", errorMsg.toString());
+                request.setAttribute("libro", libro);
+                request.getRequestDispatcher("views/formLibro.jsp").forward(request, response);
+                return; // ¡IMPORTANTE! Detener aquí para no guardar
+            }
+
+            // 3. Guardar en Base de Datos (Si pasó las validaciones)
+            if (idStr == null || idStr.isEmpty()) {
+                libroDAO.insertarLibro(libro); // Nuevo
+            } else {
+                libroDAO.actualizarLibro(libro); // Editar
+            }
+
+            response.sendRedirect("libros");
+
+        } catch (NumberFormatException e) {
+            // Capturar error si ingresan letras en campos numéricos
+            request.setAttribute("error", "Error: Los campos ID Autor, Categoría y Stock deben ser números válidos.");
+            // Intentar recuperar lo que se pueda para no limpiar todo el form (opcional)
+            request.getRequestDispatcher("views/formLibro.jsp").forward(request, response);
         }
-
-        response.sendRedirect("libros");
     }
 }
