@@ -1,0 +1,37 @@
+<project   xmlns="http://maven.apache.org/POM/4.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.biblioteca</groupId>
+    <artifactId>SistemaBiblioteca</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+
+<Dependencies>
+
+
+    <groupId>jakarta.servelt</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>5.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+// Mysql : Conector que habla con la base de datos
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>9.5.0</version>
+</dependency>
+
+// Bcrypt: Para hashear contraseñas
+<dependency>
+    <groupId>at.favre.lib</groupId>
+    <artifactId>bcrypt</artifactId>
+    <version>0.10.2</version>
+</Dependencies>
+
+</project>
+
